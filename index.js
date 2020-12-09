@@ -4,7 +4,9 @@ const bodyParser = require("body-parser");
 const cors = require("cors");
 const mongoose = require("mongoose");
 require("dotenv").config();
-
+const faqRouter = require('./routes/FAQrouter')
+const pricesRouter = require('./routes/Pricesrouter')
+const userRouter = require('./routes/Userrouter')
 // initialize app
 const app = express();
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -16,20 +18,22 @@ app.use(cors());
 //database
 // pull in ATLAS_URI from .env file
 const uri = process.env.ATLAS_URI;
+// for use with local "mongodb://localhost/faq"
 // connect to mongodb using mongoose
 mongoose
-  .connect(uri, {
+.connect(uri, {
     useNewUrlParser: true,
     useCreateIndex: true,
     useUnifiedTopology: true,
     useFindAndModify: false
-  })
-  .then(() => {
+})
+.then(() => {
     console.log("Connected to MongoDB!");
-  })
-  .catch(err => {
+})
+.catch(err => {
     console.error("Error connecting to mongoDB", err);
-  });
+});
+
 
 app.use(express.json());
 
@@ -38,7 +42,11 @@ app.use(express.json());
 const port = process.env.PORT || 3000;
 //listening to port
 app.listen(port, () => {
-  console.log(
-    `🌻 🌻 🌻 Express API listening on port http://localhost:${port} !🌻 🌻 🌻`
-  );
-});
+    console.log(
+        `🌻 🌻 🌻 Express API listening on port http://localhost:${port} !🌻 🌻 🌻`
+        );
+    });
+    
+app.use('/', faqRouter)
+app.use('/', pricesRouter)
+app.use('/', userRouter)
