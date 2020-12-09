@@ -2,6 +2,8 @@ const express = require('express');
 const router = express.Router();
 const faq = require("../models/FAQ")
 
+// FAQ will have all CRUD actions
+
 
 const makeFaq = function (req, res) {
     function createFAQ(req){
