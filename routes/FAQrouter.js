@@ -38,7 +38,7 @@ const makeFaq = function (req, res) {
                   error: err.message
               });
           }
-          console.log(faqs)
+          //console.log(faqs)
           res.send(faqs);
       });
   };
@@ -49,4 +49,8 @@ router.get('/FAQ', getFaqs);
 // router.get('/admin/faqs, authorize, getFaqs)
 //router.post('/admin/faqs', makeFaq);
 
-module.exports = router;
+module.exports = {
+  router,
+  makeFaq,
+  getFaqs 
+}

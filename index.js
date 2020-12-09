@@ -4,7 +4,7 @@ const bodyParser = require("body-parser");
 const cors = require("cors");
 const mongoose = require("mongoose");
 require("dotenv").config();
-const faqRouter = require('./routes/FAQrouter')
+const faqRouter  = require('./routes/FAQrouter')
 const pricesRouter = require('./routes/Pricesrouter')
 const userRouter = require('./routes/Userrouter')
 // initialize app
@@ -47,6 +47,6 @@ app.listen(port, () => {
         );
     });
     
-app.use('/', faqRouter)
-app.use('/', pricesRouter)
+app.use('/', faqRouter.router)
+app.use('/', pricesRouter.router)
 app.use('/', userRouter)

@@ -23,19 +23,19 @@ const prices = require("../models/Prices")
       });
   };
 
-  const updatePrices = function(req, res) {
-      const upPrice = req.body
-      prices.update(upPrice){
-          if (err) {
-              res.status(500);
-              return res.json({
-                  error: err.message
-              });
-          }
-          console.log(prices)
-          res.send(prices);
-      }
-  }
+//   const updatePrices = function(req, res) {
+//       const upPrice = req.body
+//       prices.update(upPrice){
+//           if (err) {
+//               res.status(500);
+//               return res.json({
+//                   error: err.message
+//               });
+//           }
+//           console.log(prices)
+//           res.send(prices);
+//       }
+//   }
 
  
 router.get('/prices', getPrices);
@@ -43,4 +43,8 @@ router.get('/prices', getPrices);
 //router.get('/admin/prices', authorize, getPrices)
 //router.post('/admin/prices', authorize)
 
-module.exports = router;
+module.exports = {
+    router,
+    getPrices,
+    //updatePrices
+}
