@@ -5,8 +5,11 @@ const router = express.Router();
 
 
 router.get('/', function(req,res,next) {
-     res.status(201)
-     res.send()
+    if (err) {
+        console.log(err)
+    }
+    res.status(201)
+    res.send()
 })
 router.get('/aboutus', function(req,res,next) {
     res.status(201)

@@ -38,13 +38,12 @@ const makeFaq = function (req, res) {
                   error: err.message
               });
           }
-          //console.log(faqs)
-          res.send(faqs);
+          console.log(faqs)
+          return res.send(faqs);
       });
   };
  
 router.get('/FAQ', getFaqs);
-
 //when passport is integrated
 // router.get('/admin/faqs, authorize, getFaqs)
 //router.post('/admin/faqs', makeFaq);
