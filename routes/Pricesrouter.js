@@ -6,7 +6,6 @@ const prices = require("../models/Prices")
 
   const getPrices = function (req, res) {
     const getAllPrices = function (req) {
-        console.log('hi')
         return prices.find()
       };
 
@@ -18,24 +17,26 @@ const prices = require("../models/Prices")
                   error: err.message
               });
           }
-          console.log(prices)
           res.send(prices);
       });
   };
 
-//   const updatePrices = function(req, res) {
-//       const upPrice = req.body
-//       prices.update(upPrice){
-//           if (err) {
-//               res.status(500);
-//               return res.json({
-//                   error: err.message
-//               });
-//           }
-//           console.log(prices)
-//           res.send(prices);
-//       }
-//   }
+  const editPrices = function(req, res) {
+    const updatePrices = function(req) {
+        return prices.update(req)
+    };
+    
+    updatePrices(req).exec((err, prices) => {
+        if (err) {
+            res.status(500);
+            return res.json({
+                error: err.message
+            });
+        }
+        res.send(prices)
+    }
+    )
+}
 
  
 router.get('/prices', getPrices);
@@ -46,5 +47,5 @@ router.get('/prices', getPrices);
 module.exports = {
     router,
     getPrices,
-    //updatePrices
+    editPrices
 }

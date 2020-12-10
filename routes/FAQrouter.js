@@ -25,7 +25,6 @@ const makeFaq = function (req, res) {
 
   const getFaqs = function (req, res) {
     const getAllFaqs = function (req) {
-        console.log('hi')
         return faq.find()
       };
 
@@ -37,10 +36,44 @@ const makeFaq = function (req, res) {
                   error: err.message
               });
           }
-          console.log(faqs)
-          return res.send(faqs);
+          res.send(faqs);
       });
   };
+
+  const editFaq = function(req, res) {
+    const updateFaq = function(req) {
+        return faq.update(req)
+    };
+    
+    updateFaq(req).exec((err, faq) => {
+        if (err) {
+            res.status(500);
+            return res.json({
+                error: err.message
+            });
+        }
+        res.send(faq)
+    }
+    )
+}
+
+const removeFaq = function(req, res) {
+  const deleteFaq = function(req) {
+    return faq.deleteOne(req)
+  }
+
+  deleteFaq(req).exec((err, faq) => {
+    if (err) {
+      res.status(500)
+      return res.json({
+        error: err.message
+      });
+    }
+    res.send(faq)
+  })
+}
+
+
  
 router.get('/FAQ', getFaqs);
 //when passport is integrated
@@ -50,5 +83,7 @@ router.get('/FAQ', getFaqs);
 module.exports = {
   router,
   makeFaq,
-  getFaqs 
+  getFaqs,
+  editFaq,
+  removeFaq
 }
