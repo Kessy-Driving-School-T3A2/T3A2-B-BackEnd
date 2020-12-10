@@ -17,7 +17,6 @@ const makeFaq = function (req, res) {
           error: err.message
         });
       }
-      console.log(faq)
       res.status(201);
       res.send(faq);
     });
