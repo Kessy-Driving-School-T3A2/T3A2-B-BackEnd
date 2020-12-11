@@ -85,5 +85,5 @@ module.exports = {
   makeFaq,
   getFaqs,
   editFaq,
-  removeFaq
+  removeFaq,
 }
