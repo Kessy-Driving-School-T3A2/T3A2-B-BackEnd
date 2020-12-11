@@ -4,22 +4,22 @@ const router = express.Router();
 //all will need connection to front end for views :)
 
 
-router.get('/', function(req,res,next) {
+router.get('/', function(req,res) {
     if (err) {
         console.log(err)
     }
     res.status(201)
     res.send()
 })
-router.get('/aboutus', function(req,res,next) {
+router.get('/aboutus', function(req,res) {
     res.status(201)
     res.send()
 })
-router.get('/contactus', function(req,res,next) {
+router.get('/contactus', function(req,res) {
     res.status(201)
     res.send()
 })
-router.get('/reviews', function(req,res,next) {
+router.get('/reviews', function(req,res) {
     res.status(201)
     res.send()
 })
