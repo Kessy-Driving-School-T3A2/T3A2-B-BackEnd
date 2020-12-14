@@ -1,14 +1,14 @@
 const express = require('express');
 const router = express.Router();
 const {makeFaq, getFaqs, editFaq, removeFaq} = require("../controllers/FAQcontroller")
+const {authorize} = require('../controllers/Admincontroller')
 
+// for user 
+router.get('/', getFaqs);
+//for Admin only
+router.get('/admin', authorize, getFaqs)
+router.post('/admin', authorize,  makeFaq);
+router.put('/admin', authorize, editFaq)
+router.delete('/admin', authorize, removeFaq)
 
- 
-router.get('/FAQ', getFaqs);
-//when passport is integrated
-// router.get('/admin/faqs, authorize, getFaqs)
-//router.post('/admin/faqs', makeFaq);
-
-module.exports = {
-  router
-}
+module.exports = router

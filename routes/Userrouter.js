@@ -5,9 +5,9 @@ const router = express.Router();
 
 
 router.get('/', function(req,res) {
-    if (err) {
-        console.log(err)
-    }
+    // if (err) {
+    //     console.log(err)
+    // }
     res.status(201)
     res.send()
 })
@@ -24,4 +24,4 @@ router.get('/reviews', function(req,res) {
     res.send()
 })
 
-module.exports = router;
+module.exports = router
