@@ -2,8 +2,7 @@ const user = require("../models/User")
 const passport = require('passport')
 const authenticate = passport.authenticate("local")
 
-const soothethecryingchild = function(req, res) {
-    console.log('there there its okay poor express :(')
+const necessaryforroutes = function(req, res) {
     res.status(200)
     res.send()
 }
@@ -37,5 +36,5 @@ module.exports = {
     login,
     logout,
     authorize,
-    soothethecryingchild
+    necessaryforroutes
 }
