@@ -4,9 +4,10 @@ const bodyParser = require("body-parser");
 const cors = require("cors");
 const mongoose = require("mongoose");
 require("dotenv").config();
-const faqRouter = require('./routes/FAQrouter')
+const faqRouter  = require('./routes/FAQrouter')
 const pricesRouter = require('./routes/Pricesrouter')
 const userRouter = require('./routes/Userrouter')
+const adminRouter = require('./routes/Adminrouter')
 // initialize app
 const app = express();
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -40,6 +41,14 @@ app.use(express.json());
 //port
 // set the port to run the server
 const port = process.env.PORT || 3000;
+
+app.use('/FAQ', faqRouter)
+app.use('/prices', pricesRouter)
+app.use('/', userRouter)
+app.use('/admin', adminRouter)
+
+
+
 //listening to port
 app.listen(port, () => {
     console.log(
@@ -47,6 +56,3 @@ app.listen(port, () => {
         );
     });
     
-app.use('/', faqRouter)
-app.use('/', pricesRouter)
-app.use('/', userRouter)
