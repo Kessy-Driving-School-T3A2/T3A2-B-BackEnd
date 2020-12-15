@@ -270,3 +270,37 @@ test('expect removeFaq to NOT return a res.status of 500', () => {
         expect(res.status).not.toBe(500)
       }    
 })
+
+const faq2 = [{
+  "_id":1,
+  "question":"why is the rum gone",
+  "answer":"definitively because someone drank it"
+},
+{
+  "_id": 2,
+  "question": "im a pirate and im looking for booty",
+  "answer": "answer machine go brrrrrrrrrrrr"
+}
+]
+test('expect removeFaq to not delete all faqs just one', () => {
+  const removeFaq = function(req, res) {
+    const deleteFaq = function(req) {
+      return faq2.deleteOne(_id === 2)
+    }
+  
+    deleteFaq(req).exec((err, faq) => {
+      if (err) {
+        res.status(500)
+        return res.json({
+          error: err.message
+        });
+      }
+      res.send(faq)
+    })
+    expect(faq2).toBe({
+      "_id":1,
+      "question":"why is the rum gone",
+      "answer":"definitively because someone drank it"
+    })
+  }    
+})

@@ -1,14 +1,10 @@
-const faq = require("../models/FAQ")
+const {createFAQ, getAllFaqs, editFaq, removeFaq} = require("../utilities/FAQutilities")
 
 
-// FAQ will have all CRUD actions
+// FAQ will has all CRUD actions
 
 
 const makeFaq = function (req, res) {
-    function createFAQ(req){
-        return new faq(req.body);
-      }
-
       createFAQ(req).save((err, faq) => {
       if (err) {
         res.status(500);
@@ -19,14 +15,10 @@ const makeFaq = function (req, res) {
       res.status(201);
       res.send(faq);
     });
-  };
+};
 
 
-  const getFaqs = function (req, res) {
-    const getAllFaqs = function (req) {
-        return faq.find()
-      };
-
+const getFaqs = function (req, res) {
     getAllFaqs(req).
         exec((err, faqs) => {
           if (err) {
@@ -39,11 +31,7 @@ const makeFaq = function (req, res) {
       });
   };
 
-  const editFaq = function(req, res) {
-    const updateFaq = function(req) {
-        return faq.update(req)
-    };
-    
+const editFaq = function(req, res) {
     updateFaq(req).exec((err, faq) => {
         if (err) {
             res.status(500);
@@ -52,15 +40,10 @@ const makeFaq = function (req, res) {
             });
         }
         res.send(faq)
-    }
-    )
+    })
 }
 
 const removeFaq = function(req, res) {
-  const deleteFaq = function(req) {
-    return faq.deleteOne(req)
-  }
-
   deleteFaq(req).exec((err, faq) => {
     if (err) {
       res.status(500)

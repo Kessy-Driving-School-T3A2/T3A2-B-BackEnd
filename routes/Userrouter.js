@@ -2,12 +2,10 @@ const express = require('express');
 const router = express.Router();
 
 //all will need connection to front end for views :)
-
+// will send the pages from front end
 
 router.get('/', function(req,res) {
-    // if (err) {
-    //     console.log(err)
-    // }
+  
     res.status(201)
     res.send()
 })
