@@ -2,11 +2,13 @@ const user = require("../models/User")
 const passport = require('passport')
 const authenticate = passport.authenticate("local")
 
+// middleware required a function to create a working route
 const necessaryforroutes = function(req, res) {
     res.status(200)
     res.send()
 }
 
+//authenticate is an inbuilt function of the passport
 const login = (req, res) => {
     authenticate(req, res, function() {
         //console.log("authenticated", req.user.username);
@@ -18,12 +20,14 @@ const login = (req, res) => {
     })
 }
 
+
 const logout = (req, res) => {
     req.logout();
     //console.log("logged out user");
     res.sendStatus(200);
 }
 
+//is authenticated is another in built function of the passport package
 const authorize = ((req, res, next) => {
     if (req.isAuthenticated()) {
         next()
