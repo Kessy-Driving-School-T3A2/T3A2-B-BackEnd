@@ -1,12 +1,8 @@
-const prices = require("../models/Prices")
+const { getAllPrices, updatePrices} = require("../utilities/Pricesutilities")
 
-// Prices needs a display all function and an update function thats it
+// Prices needs a display all function and an update function only
 
 const getPrices = function (req, res) {
-    const getAllPrices = function (req) {
-        return prices.find()
-      };
-
     getAllPrices(req).
         exec((err, prices) => {
           if (err) {
@@ -19,11 +15,7 @@ const getPrices = function (req, res) {
       });
   };
 
-  const editPrices = function(req, res) {
-    const updatePrices = function(req) {
-        return prices.update(req)
-    };
-    
+const editPrices = function(req, res) {
     updatePrices(req).exec((err, prices) => {
         if (err) {
             res.status(500);
@@ -32,8 +24,7 @@ const getPrices = function (req, res) {
             });
         }
         res.send(prices)
-    }
-    )
+    })
 }
 
 module.exports = {

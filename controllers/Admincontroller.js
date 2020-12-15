@@ -9,9 +9,9 @@ const necessaryforroutes = function(req, res) {
 
 const login = (req, res) => {
     authenticate(req, res, function() {
-        console.log("authenticated", req.user.username);
-        console.log("session object:", req.session);
-        console.log("req.user:", req.user);
+        //console.log("authenticated", req.user.username);
+        //console.log("session object:", req.session);
+        //console.log("req.user:", req.user);
         res.status(200)
         res.json(req.user)
         res.redirect('/FAQ/admin')
@@ -20,7 +20,7 @@ const login = (req, res) => {
 
 const logout = (req, res) => {
     req.logout();
-    console.log("logged out user");
+    //console.log("logged out user");
     res.sendStatus(200);
 }
 
