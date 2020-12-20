@@ -49,7 +49,7 @@ AWS.config.update({region: 'ap-southeast-2'});
 s3 = new AWS.S3({apiVersion: '2006-03-01'});
 
 // Create the parameters for calling listObjects
-var bucketParams = {
+const bucketParams = {
   Bucket : 'keesydrivingschool',
 };
 
