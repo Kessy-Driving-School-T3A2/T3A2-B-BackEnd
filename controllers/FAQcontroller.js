@@ -1,4 +1,4 @@
-const {createFAQ, getAllFaqs, editFaq, removeFaq} = require("../utilities/FAQutilities")
+const {createFAQ, getAllFaqs, updateFaq, deleteFaq} = require("../utilities/FAQutilities")
 
 
 // FAQ will has all CRUD actions
