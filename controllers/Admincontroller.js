@@ -11,9 +11,9 @@ const necessaryforroutes = function(req, res) {
 //authenticate is an inbuilt function of the passport
 const login = (req, res) => {
     authenticate(req, res, function() {
-        //console.log("authenticated", req.user.username);
-        //console.log("session object:", req.session);
-        //console.log("req.user:", req.user);
+        console.log("authenticated", req.user.username);
+        console.log("session object:", req.session);
+        console.log("req.user:", req.user);
         res.status(200)
         res.json(req.user)
         res.redirect('/FAQ/admin')

@@ -8,20 +8,20 @@ const AWS = require('aws-sdk')
 
 router.get('/', function(req,res) {
    
-    res.status(201)
+    res.status(200)
     res.send()
 })
 router.get('/aboutus', function(req,res) {
-    pictures
-    res.status(201)
+    //pictures
+    res.status(200)
     res.send()
 })
 router.get('/contactus', function(req,res) {
-    res.status(201)
+    res.status(200)
     res.send()
 })
 router.get('/reviews', function(req,res) {
-    res.status(201)
+    res.status(200)
     res.send()
 })
 
