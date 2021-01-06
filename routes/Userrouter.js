@@ -1,6 +1,5 @@
 const express = require('express');
 const router = express.Router();
-const AWS = require('aws-sdk')
 //all will need connection to front end for views :)
 // will send the pages from front end
 
