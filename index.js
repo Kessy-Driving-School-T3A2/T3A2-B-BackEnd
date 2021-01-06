@@ -42,25 +42,25 @@ app.use(express.json());
 // set the port to run the server
 const port = process.env.PORT || 3000;
 
-// Set the region 
-AWS.config.update({region: 'ap-southeast-2'});
+// // Set the region 
+// AWS.config.update({region: 'ap-southeast-2'});
 
-// Create S3 service object
-s3 = new AWS.S3({apiVersion: '2006-03-01'});
+// // Create S3 service object
+// s3 = new AWS.S3({apiVersion: '2006-03-01'});
 
-// Create the parameters for calling listObjects
-const bucketParams = {
-  Bucket : 'keesydrivingschool',
-};
+// // Create the parameters for calling listObjects
+// const bucketParams = {
+//   Bucket : 'keesydrivingschool',
+// };
 
-// Call S3 to obtain a list of the objects in the bucket
-s3.listObjects(bucketParams, function(err, data) {
-  if (err) {
-    console.log("Error", err);
-  } else {
-    console.log("Success", data);
-  }
-});
+// // Call S3 to obtain a list of the objects in the bucket
+// s3.listObjects(bucketParams, function(err, data) {
+//   if (err) {
+//     console.log("Error", err);
+//   } else {
+//     console.log("Success", data);
+//   }
+// });
 
 app.use('/FAQ', faqRouter)
 app.use('/prices', pricesRouter)
