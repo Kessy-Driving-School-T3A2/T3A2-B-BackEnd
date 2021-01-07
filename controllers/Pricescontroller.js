@@ -11,7 +11,7 @@ const getPrices = function (req, res) {
                   error: err.message
               });
           }
-          res.send(prices);
+          res.json(prices);
       });
   };
 
@@ -23,7 +23,7 @@ const editPrices = function(req, res) {
                 error: err.message
             });
         }
-        res.send(prices)
+        res.json(prices)
     })
 }
 

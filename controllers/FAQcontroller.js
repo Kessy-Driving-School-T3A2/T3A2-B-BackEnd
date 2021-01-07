@@ -13,7 +13,7 @@ const makeFaq = function (req, res) {
         });
       }
       res.status(201);
-      res.send(faq);
+      res.json(faq);
     });
 };
 
@@ -27,7 +27,7 @@ const getFaqs = function (req, res) {
                   error: err.message
               });
           }
-          res.send(faqs);
+          res.json(faqs);
       });
   };
 
@@ -39,7 +39,7 @@ const editFaq = function(req, res) {
                 error: err.message
             });
         }
-        res.send(faq)
+        res.json(faq)
     })
 }
 
@@ -51,7 +51,7 @@ const removeFaq = function(req, res) {
         error: err.message
       });
     }
-    res.send(faq)
+    res.json(faq)
   })
 }
 

@@ -8,20 +8,20 @@ const router = express.Router();
 router.get('/', function(req,res) {
    
     res.status(200)
-    res.send()
+    res.json()
 })
 router.get('/aboutus', function(req,res) {
     //pictures
     res.status(200)
-    res.send()
+    res.json()
 })
 router.get('/contactus', function(req,res) {
     res.status(200)
-    res.send()
+    res.json()
 })
 router.get('/reviews', function(req,res) {
     res.status(200)
-    res.send()
+    res.json()
 })
 
 module.exports = router
