@@ -1,7 +1,9 @@
 const mongoose = require('mongoose')
 
 
-const pricesSchema = new mongoose.Schema({})
+const PricesSchema = new mongoose.Schema({
+    lesson: String,
+    price: String
+});
 
-
-module.exports = mongoose.model("price", pricesSchema)
+module.exports = mongoose.model("price", PricesSchema)
