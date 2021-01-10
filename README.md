@@ -1,36 +1,36 @@
-# T3A2-B-BackEnd
-API Endpoints
-GET Home
-'/'
-GET About Us
-'/aboutus'
-GET Contact Us
-'/contactus'
-GET Reviews
-'/reviews'
+# T3A2-B-BackEnd<br>
+API Endpoints<br>
+GET Home<br>
+'/'<br>
+GET About Us<br>
+'/aboutus'<br>
+GET Contact Us<br>
+'/contactus'<br>
+GET Reviews<br>
+'/reviews'<br>
 
-Prices Router
-GET Prices
-'/Prices'
-GET Prices Admin
-'/Prices/admin'
-PUT Prices Admin
-'/Prices/admin'
+Prices Router<br>
+GET Prices<br>
+'/Prices'<br>
+GET Prices Admin<br>
+'/Prices/admin'<br>
+PUT Prices Admin<br>
+'/Prices/admin'<br>
 
-FAQ Router
-GET FAQ
-'/FAQ'
-GET FAQ admin
-'/FAQ/admin'
-POST FAQ admin
-'/FAQ/admin'
-PUT FAQ admin
-'/FAQ/admin'
-DELETE FAQ admin
-'/FAQ/admin'
+FAQ Router<br>
+GET FAQ<br>
+'/FAQ'<br>
+GET FAQ admin<br>
+'/FAQ/admin'<br>
+POST FAQ admin<br>
+'/FAQ/admin'<br>
+PUT FAQ admin<br>
+'/FAQ/admin'<br>
+DELETE FAQ admin<br>
+'/FAQ/admin'<br>
 
-Admin Router
-GET Admin Login
-'/Admin/login'
-POST Admin Login
-'/Admin/login'
+Admin Router<br>
+GET Admin Login<br>
+'/Admin/login'<br>
+POST Admin Login<br>
+'/Admin/login'<br>
