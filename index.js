@@ -7,7 +7,7 @@ require("dotenv").config();
 const faqRouter  = require('./routes/FAQrouter')
 const pricesRouter = require('./routes/Pricesrouter')
 const userRouter = require('./routes/Userrouter')
-const adminRouter = require('./routes/Adminrouter')
+const adminRouter = require('./routes/Auth.router')
 // initialize app
 const app = express();
 app.use(bodyParser.urlencoded({ extended: true }));
