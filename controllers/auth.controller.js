@@ -18,12 +18,14 @@ exports.signin = (req, res) => {
         if (!user) {
           return res.status(404).send({ message: "User Not found." });
         }
-  
+        
+        let hash = bcrypt.hashSync(user.password, 10)
+
         const passwordIsValid = bcrypt.compareSync(
           req.body.password,
-          user.password
+          hash
         );
-  
+        
         if (!passwordIsValid) {
           return res.status(401).send({
             accessToken: null,
@@ -43,4 +45,9 @@ exports.signin = (req, res) => {
         });
       });
   };
+
+exports.hangout = (req, res) => {
+  console.log("a middleware function that exists because routes demands it")
+  res.send()
+}
   
