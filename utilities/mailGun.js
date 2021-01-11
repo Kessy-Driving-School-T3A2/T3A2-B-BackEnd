@@ -1,6 +1,7 @@
 const nodemailer = require('nodemailer');
 const mailGun = require('nodemailer-mailgun-transport');
 
+// so my account got flagged because it picked up the api key on git hub... shit, need strategies for this please
 const auth = {
     auth: {
         api_key: 'ff284629a0089874bf1b192b3126ea69-3d0809fb-0cf3d445',

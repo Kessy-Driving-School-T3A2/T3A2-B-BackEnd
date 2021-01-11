@@ -47,7 +47,7 @@ app.use('/FAQ', faqRouter)
 app.use('/prices', pricesRouter)
 app.use('/', userRouter)
 app.use('/admin', adminRouter)
-// ghosts in t he code
+// ghosts in the code
 app.post('/contactus', (req,res) => {
     const { name, subject, email, text} = req.body;
     console.log('Data:', req.body);
