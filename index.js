@@ -5,6 +5,7 @@ const cors = require("cors");
 const mongoose = require("mongoose");
 require("dotenv").config();
 const faqRouter  = require('./routes/FAQrouter')
+const reviewRouter = require('./routes/Reviewsrouter')
 const pricesRouter = require('./routes/Pricesrouter')
 const userRouter = require('./routes/Userrouter')
 const adminRouter = require('./routes/Auth.router')
@@ -47,6 +48,7 @@ app.use('/FAQ', faqRouter)
 app.use('/prices', pricesRouter)
 app.use('/', userRouter)
 app.use('/admin', adminRouter)
+app.use('/Reviews', reviewRouter)
 // ghosts in the code
 app.post('/contactus', (req,res) => {
     const { name, subject, email, text} = req.body;
