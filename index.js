@@ -7,7 +7,8 @@ require("dotenv").config();
 const faqRouter  = require('./routes/FAQrouter')
 const pricesRouter = require('./routes/Pricesrouter')
 const userRouter = require('./routes/Userrouter')
-const adminRouter = require('./routes/Adminrouter')
+const adminRouter = require('./routes/Auth.router')
+const sendMail = require('./utilities/mailGun')
 // initialize app
 const app = express();
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -41,30 +42,24 @@ app.use(express.json());
 // set the port to run the server
 const port = process.env.PORT || 3000;
 
-// // Set the region 
-// AWS.config.update({region: 'ap-southeast-2'});
-
-// // Create S3 service object
-// s3 = new AWS.S3({apiVersion: '2006-03-01'});
-
-// // Create the parameters for calling listObjects
-// const bucketParams = {
-//   Bucket : 'keesydrivingschool',
-// };
-
-// // Call S3 to obtain a list of the objects in the bucket
-// s3.listObjects(bucketParams, function(err, data) {
-//   if (err) {
-//     console.log("Error", err);
-//   } else {
-//     console.log("Success", data);
-//   }
-// });
 
 app.use('/FAQ', faqRouter)
 app.use('/prices', pricesRouter)
 app.use('/', userRouter)
 app.use('/admin', adminRouter)
+// ghosts in the code
+app.post('/contactus', (req,res) => {
+    const { name, subject, email, text} = req.body;
+    console.log('Data:', req.body);
+    sendMail(name, email, subject, text, function(err, data) {
+        if (err) {
+            res.status(500).json({ message: 'Internal Error'});
+        } else {
+            res.status({ message: 'Email sent!!!'});
+            return data
+        }
+    });
+});
 
 
 
@@ -76,3 +71,14 @@ app.listen(port, () => {
         );
     });
     
+function authfunction(app) {
+        app.use(function(req, res, next) {
+          res.header(
+            "Access-Control-Allow-Headers",
+            "x-access-token, Origin, Content-Type, Accept"
+          );
+          next();
+        });
+      
+        
+      };

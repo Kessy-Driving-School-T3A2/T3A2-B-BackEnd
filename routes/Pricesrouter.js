@@ -1,13 +1,13 @@
 const express = require('express');
 const router = express.Router();
 const {getPrices, editPrices} = require("../controllers/Pricescontroller")
-const {authorize} = require('../controllers/Admincontroller')
+const authJwt = require("../utilities/authJWT")
 
 
  //for regular user
 router.get('', getPrices);
 // for admin only 
-router.get('/admin', authorize, getPrices)
-router.put('/admin', authorize, editPrices)
+router.get('/admin',  authJwt.verifyToken, getPrices)
+router.put('/admin',  authJwt.verifyToken, editPrices)
 
 module.exports = router
