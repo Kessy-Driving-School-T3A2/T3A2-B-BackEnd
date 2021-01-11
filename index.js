@@ -8,6 +8,7 @@ const faqRouter  = require('./routes/FAQrouter')
 const pricesRouter = require('./routes/Pricesrouter')
 const userRouter = require('./routes/Userrouter')
 const adminRouter = require('./routes/Auth.router')
+const sendMail = require('./utilities/mailGun')
 // initialize app
 const app = express();
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -46,6 +47,19 @@ app.use('/FAQ', faqRouter)
 app.use('/prices', pricesRouter)
 app.use('/', userRouter)
 app.use('/admin', adminRouter)
+// ghosts in t he code
+app.post('/contactus', (req,res) => {
+    const { name, subject, email, text} = req.body;
+    console.log('Data:', req.body);
+    sendMail(name, email, subject, text, function(err, data) {
+        if (err) {
+            res.status(500).json({ message: 'Internal Error'});
+        } else {
+            res.status({ message: 'Email sent!!!'});
+            return data
+        }
+    });
+});
 
 
 
