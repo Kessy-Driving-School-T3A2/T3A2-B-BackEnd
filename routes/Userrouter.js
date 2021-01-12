@@ -17,7 +17,7 @@ router.get('/contactus', function(req,res) {
     res.status(200)
     res.json()
 })
-// router.post('/contactus', sendMail)
+//router.post('/contactus', sendMail)
 
 
 module.exports = router
