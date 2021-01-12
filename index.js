@@ -57,7 +57,7 @@ app.post('/contactus', (req,res) => {
         if (err) {
             res.status(500).json({ message: 'Internal Error'});
         } else {
-            res.status({ message: 'Email sent!!!'});
+            res.status(200).json({ message: 'Email sent!!!'});
         }
     });
 });
