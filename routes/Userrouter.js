@@ -19,9 +19,5 @@ router.get('/contactus', function(req,res) {
 })
 // router.post('/contactus', sendMail)
 
-router.get('/reviews', function(req,res) {
-    res.status(200)
-    res.json()
-})
 
 module.exports = router
