@@ -53,12 +53,11 @@ app.use('/Reviews', reviewRouter)
 app.post('/contactus', (req,res) => {
     const { name, subject, email, text} = req.body;
     console.log('Data:', req.body);
-    sendMail(name, email, subject, text, function(err, data) {
+    sendMail(name, email, subject, text, function(err) {
         if (err) {
             res.status(500).json({ message: 'Internal Error'});
         } else {
             res.status({ message: 'Email sent!!!'});
-            return data
         }
     });
 });
