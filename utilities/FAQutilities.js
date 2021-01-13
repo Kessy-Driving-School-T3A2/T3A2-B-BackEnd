@@ -8,12 +8,17 @@ const getAllFaqs = function(req) {
     return faq.find()
 };
 
-const updateFaq = function(req) {
-    return faq.update(req)
-};
+const updateFaq =  function(req, res) {
+   return  faq.updateOne(
+        {_id: req.body._id},
+        {
+            question: req.body.question,
+            answer: req.body.answer
+        })
+}
 
-const deleteFaq = function(req) {
-    return faq.deleteOne(req)
+const deleteFaq = function(id) {
+    return faq.findByIdAndDelete(id)
 };
 
 module.exports = {

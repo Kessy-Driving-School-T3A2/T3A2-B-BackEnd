@@ -5,7 +5,13 @@ const getAllPrices = function (req) {
   };
 
 const updatePrices = function(req) {
-    return prices.update(req)
+    return prices.updateOne(
+        {_id: req.body._id},
+        {
+            lesson: req.body.lesson,
+            price: req.body.price
+        },
+        )
 };
 
 module.exports = {

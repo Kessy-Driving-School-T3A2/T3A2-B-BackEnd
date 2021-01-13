@@ -1,5 +1,5 @@
 const {createFAQ, getAllFaqs, updateFaq, deleteFaq} = require("../utilities/FAQutilities")
-
+const faq = require("../models/FAQ")
 
 // FAQ will has all CRUD actions
 
@@ -31,20 +31,19 @@ const getFaqs = function (req, res) {
       });
   };
 
-const editFaq = function(req, res) {
-    updateFaq(req).exec((err, faq) => {
-        if (err) {
-            res.status(500);
-            return res.json({
-                error: err.message
-            });
-        }
-        res.json(faq)
-    })
+const editFaq = async(req, res, done) => {
+     updateFaq(req, res).exec((err, faqs) => {
+      if (err) {
+          res.status(500);
+          return res.json({
+              error: err.message
+          });
+      }
+      res.json(faqs);
+  });
 }
-
 const removeFaq = function(req, res) {
-  deleteFaq(req).exec((err, faq) => {
+  deleteFaq(req.body._id).exec((err, faq) => {
     if (err) {
       res.status(500)
       return res.json({

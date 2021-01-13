@@ -8,8 +8,8 @@ const getAllReviews = function(req) {
     return review.find()
 };
 
-const deleteReview = function(req) {
-    return review.deleteOne(req)
+const deleteReview = function(id) {
+    return review.findByIdAndDelete(id)
 };
 
 module.exports = {
