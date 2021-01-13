@@ -34,7 +34,7 @@ const getReviews = function (req, res) {
 
 
 const removeReview = function(req, res) {
-  deleteReview(req).exec((err, review) => {
+  deleteReview(req.body._id).exec((err, review) => {
     if (err) {
       res.status(500)
       return res.json({
