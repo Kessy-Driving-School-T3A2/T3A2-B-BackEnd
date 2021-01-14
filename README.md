@@ -31,6 +31,14 @@ DELETE FAQ admin<br>
 
 Admin Router<br>
 GET Admin Login<br>
-'/Admin/login'<br>
+'/Admin/signin'<br>
 POST Admin Login<br>
-'/Admin/login'<br>
+'/Admin/signin'<br>
+
+Reviews Router <br>
+GET Reviews<br>
+'/Reviews' <br>
+POST Reviews<br>
+'/Reviews'<br>
+DELETE Reviews<br>
+'/Reviews'

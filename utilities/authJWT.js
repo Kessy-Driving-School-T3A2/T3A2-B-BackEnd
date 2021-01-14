@@ -2,6 +2,7 @@ const jwt = require("jsonwebtoken");
 const config = require("../config/auth.config.js");
 const db = require("../models");
 
+// used on all routes where admin access is needed
 verifyToken = (req, res, next) => {
   const token = req.headers["x-access-token"];
 

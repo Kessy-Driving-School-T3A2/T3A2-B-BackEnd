@@ -49,10 +49,9 @@ app.use('/prices', pricesRouter)
 app.use('/', userRouter)
 app.use('/admin', adminRouter)
 app.use('/Reviews', reviewRouter)
-// ghosts in the code
+// post method for mailgun was implemented here and not in user routes
 app.post('/contactus', (req,res) => {
     const { name, subject, email, text} = req.body;
-    console.log('Data:', req.body);
     sendMail(name, email, subject, text, function(err) {
         if (err) {
             res.status(500).json({ message: 'Internal Error'});
