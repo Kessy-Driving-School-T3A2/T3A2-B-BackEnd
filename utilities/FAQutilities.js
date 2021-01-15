@@ -8,6 +8,7 @@ const getAllFaqs = function(req) {
     return faq.find()
 };
 
+// findByIdAndUpdate didnt work so used updateOne function
 const updateFaq =  function(req, res) {
    return  faq.updateOne(
         {_id: req.body._id},

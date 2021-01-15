@@ -1,8 +1,7 @@
 const {createReview, getAllReviews, deleteReview} = require("../utilities/Reviewutilities")
 
 
-// FAQ will has all CRUD actions
-
+// Review will has Read all, create and destroy actions
 
 const makeReview = function (req, res) {
       createReview(req).save((err, review) => {

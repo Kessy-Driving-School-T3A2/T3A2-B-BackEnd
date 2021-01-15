@@ -2,7 +2,7 @@ const nodemailer = require('nodemailer');
 const mailGun = require('nodemailer-mailgun-transport');
 require("dotenv").config();
 
-// so my account got flagged because it picked up the api key on git hub... shit, need strategies for this please
+// keys are hidden because mailgun bans account if keys are public
 const auth = {
     auth: {
         api_key: process.env.MAILGUNAPIKEY,
@@ -21,14 +21,14 @@ const sendMail = (name, email, subject, text, cb) => {
         subject: subject,
         text: text
     }
-// call back hell impending
+
     transporter.sendMail(mailOptions, function(err, data) {
         if (err) {
             cb(err, null);
         } else {
             cb(null, data);
-            console.log("message received")
-            //return data// res.redirect("/contactus")
+            
+            
         }
     });
 }

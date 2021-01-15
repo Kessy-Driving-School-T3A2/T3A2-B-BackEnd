@@ -6,6 +6,7 @@ const authJwt = require("../utilities/authJWT")
 // for user 
 router.get('/', getReviews);
 router.post('/', makeReview);
+// delete option is only avaliable for the Admin
 router.delete('/',  authJwt.verifyToken, removeReview)
 
 module.exports = router

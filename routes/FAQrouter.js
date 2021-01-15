@@ -3,7 +3,7 @@ const router = express.Router();
 const {makeFaq, getFaqs, editFaq, removeFaq} = require("../controllers/FAQcontroller")
 const authJwt = require("../utilities/authJWT")
 
-// for user 
+// for user/customer 
 router.get('/', getFaqs);
 //for Admin only
 router.get('/admin', authJwt.verifyToken, getFaqs)

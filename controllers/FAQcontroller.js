@@ -1,8 +1,7 @@
 const {createFAQ, getAllFaqs, updateFaq, deleteFaq} = require("../utilities/FAQutilities")
 const faq = require("../models/FAQ")
 
-// FAQ will has all CRUD actions
-
+// FAQ will have all CRUD actions
 
 const makeFaq = function (req, res) {
       createFAQ(req).save((err, faq) => {
@@ -42,6 +41,7 @@ const editFaq = async(req, res, done) => {
       res.json(faqs);
   });
 }
+
 const removeFaq = function(req, res) {
   deleteFaq(req.body._id).exec((err, faq) => {
     if (err) {
